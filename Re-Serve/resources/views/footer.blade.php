@@ -13,10 +13,10 @@
   			</div>
   			<div class="col-12 text-center col-md-4">
   				<h4>Make a Reservation</h4>
-          <li><a href="#">Login</a></li>
-            <li><a href="#">Register</a></li>
+          <li><a href="{{route('login')}}">Login</a></li>
+            <li><a href="{{route('register')}}}">Register</a></li>
             <li><a href="#">Restaurants</a></li>
-            <li><a href="#">Cancellation Policy</a></li>
+            <li><a href="{{route('cancel')}}">Cancellation Policy</a></li>
   			</div>
   			<div class="col-12 text-center col-md-4">
   				<a  style="color:#442CD4;"  href="https://www.facebook.com/elleryjosef" target="_blank">

@@ -13,12 +13,12 @@
 			<div class="col-xs-12 con_entrance text-center img-fluid">
 					<h2 class="en-text">Always here to help</h2>
 					<p>Have something to tell us? Leave a message down below</p>
-					<a href="#" class="btn btn-secondary">Find a Restaurant</a>
+					<a href="#con_form" class="btn btn-secondary">Contact Us</a>
 			</div>
 		</div>
   </div>
 
-  <section class="con_form">
+  <section class="con_form" id="con_form">
   	<div class="container">
   		<div class="row">
   			<div class="col-md-3">
@@ -33,7 +33,7 @@
 			  	{{Form::open(['route'=>'message.store', 'method'=>'post'])}}
 					
 					<div class="form-group">
-						
+
 						{{Form::label('name', 'Name', ['class' => 'control-label'])}}
 						{{Form::text('name', '', ['class'=>'form-control', 'required'])}}
 

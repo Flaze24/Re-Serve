@@ -13,4 +13,8 @@ class PagesController extends Controller
     public function about(){
     	return view('pages.about');
     }
+
+    public function cancel(){
+    	return view('pages.cancel');
+    }
 }

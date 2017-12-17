@@ -24,6 +24,10 @@ main {
   width: 100%;
   z-index: 2;
 }
+.navbar img {
+  width: 150px;
+  height: 40px;
+}
 footer {
   color: #fff;
 }
@@ -233,5 +237,92 @@ hr.style-seven::before {
   font-weight: bold;
 }
 .con_form {
+  margin-top: 600px;
+}
+.log_entrance {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.7)), to(rgba(0,0,0,0.7))), url(/images/log.jpg?58c23bf4c925ec34a94e1227bb84daf8);
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/log.jpg?58c23bf4c925ec34a94e1227bb84daf8);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 550px;
+  margin-top: 0 auto;
+  font-size: 20px;
+  color: #fff;
+}
+.log_entrance h1,
+.log_entrance h2,
+.log_entrance h3,
+.log_entrance h4,
+.log_entrance h5,
+.log_entrance h6 {
+  padding-top: 250px;
+  color: #fff;
+}
+.log_entrance p span {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.log_form {
+  margin-top: 600px;
+}
+.reg_entrance {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.7)), to(rgba(0,0,0,0.7))), url(/images/typing2.jpg?fea683a6938075a836ea323e8ffc36c6);
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/typing2.jpg?fea683a6938075a836ea323e8ffc36c6);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 550px;
+  margin-top: 0 auto;
+  font-size: 20px;
+  color: #fff;
+}
+.reg_entrance h1,
+.reg_entrance h2,
+.reg_entrance h3,
+.reg_entrance h4,
+.reg_entrance h5,
+.reg_entrance h6 {
+  padding-top: 250px;
+  color: #fff;
+}
+.reg_entrance p span {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.reg_form {
+  margin-top: 600px;
+}
+.can_entrance {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.7)), to(rgba(0,0,0,0.7))), url(/images/cancel.jpg?9530d1af6d546dd25d8acd28b6edbaa8);
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/cancel.jpg?9530d1af6d546dd25d8acd28b6edbaa8);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 550px;
+  margin-top: 0 auto;
+  font-size: 20px;
+  color: #fff;
+}
+.can_entrance h1,
+.can_entrance h2,
+.can_entrance h3,
+.can_entrance h4,
+.can_entrance h5,
+.can_entrance h6 {
+  padding-top: 250px;
+  color: #fff;
+}
+.can_entrance p span {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.cancel {
   margin-top: 600px;
 }
