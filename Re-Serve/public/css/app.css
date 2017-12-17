@@ -24,6 +24,54 @@ main {
   width: 100%;
   z-index: 2;
 }
+footer {
+  color: #fff;
+}
+footer a:link,
+footer a:hover,
+footer a:visited,
+footer a:active {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer h6 {
+  text-decoration: underline;
+  color: #fff;
+}
+textarea {
+  resize: none;
+}
+.miscellaneous {
+  background: #0a0a0a;
+  font-size: 15px;
+  padding-top: 80px;
+  margin-top: 50px;
+}
+.miscellaneous .overview {
+  height: 300px;
+}
+.miscellaneous .overview li {
+  list-style: none;
+  line-height: 30px;
+}
+.miscellaneous .overview i {
+  padding-top: 80px;
+}
+@media screen and (min-width: 410px) {
+  .miscellaneous {
+    height: 400px;
+  }
+}
+.bottom {
+  background: #fff;
+  color: #0e0e0e;
+}
 .entrance {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.7)), to(rgba(0,0,0,0.7))), url(/images/reserve_banner2.jpg?aa96048c1d1668c7657db86de1d83b6a);
   background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/reserve_banner2.jpg?aa96048c1d1668c7657db86de1d83b6a);
@@ -85,6 +133,12 @@ hr.style-seven::before {
   height: 400px;
   display: none;
 }
+.sponsors {
+  background: #eee;
+  width: 100%;
+  height: 200px;
+  padding-top: 50px;
+}
 .exit {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.7)), to(rgba(0,0,0,0.7))), url(/images/table_food.jpg?f7c51b94022c7f4dceda5ad8dfc05ae8);
   background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/table_food.jpg?f7c51b94022c7f4dceda5ad8dfc05ae8);
@@ -111,48 +165,73 @@ hr.style-seven::before {
   text-decoration: underline;
   font-weight: bold;
 }
-footer {
+.ab_entrance {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.7)), to(rgba(0,0,0,0.7))), url(/images/chef_talking.jpg?da0d6b4c14b2f46c2cd32bd4c4ca4bd1);
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/chef_talking.jpg?da0d6b4c14b2f46c2cd32bd4c4ca4bd1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 550px;
+  margin-top: 0 auto;
+  font-size: 20px;
   color: #fff;
 }
-footer a:link,
-footer a:hover,
-footer a:visited,
-footer a:active {
-  text-decoration: none;
+.ab_entrance h1,
+.ab_entrance h2,
+.ab_entrance h3,
+.ab_entrance h4,
+.ab_entrance h5,
+.ab_entrance h6 {
+  padding-top: 250px;
   color: #fff;
-  font-size: 18px;
 }
-footer h1,
-footer h2,
-footer h3,
-footer h4,
-footer h5,
-footer h6 {
+.ab_entrance p span {
   text-decoration: underline;
+  font-weight: bold;
+}
+.presentation {
+  margin-top: 600px;
+}
+.presentation img {
+  float: right;
+  border-radius: 30px;
+}
+.presentation .investors {
+  padding-top: 60px;
+}
+.testimony {
+  margin-top: 50px;
+  height: 300px;
+  background: #eee;
+}
+.con_entrance {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.7)), to(rgba(0,0,0,0.7))), url(/images/chef2.jpg?9559fd8a0d59a0c4d95757aa9bfdd7ed);
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/chef2.jpg?9559fd8a0d59a0c4d95757aa9bfdd7ed);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 550px;
+  margin-top: 0 auto;
+  font-size: 20px;
   color: #fff;
 }
-.miscellaneous {
-  background: #0a0a0a;
-  font-size: 15px;
-  padding-top: 80px;
-  margin-top: 50px;
+.con_entrance h1,
+.con_entrance h2,
+.con_entrance h3,
+.con_entrance h4,
+.con_entrance h5,
+.con_entrance h6 {
+  padding-top: 250px;
+  color: #fff;
 }
-.miscellaneous .overview {
-  height: 300px;
+.con_entrance p span {
+  text-decoration: underline;
+  font-weight: bold;
 }
-.miscellaneous .overview li {
-  list-style: none;
-  line-height: 30px;
-}
-.miscellaneous .overview i {
-  padding-top: 80px;
-}
-@media screen and (min-width: 410px) {
-  .miscellaneous {
-    height: 400px;
-  }
-}
-.bottom {
-  background: #fff;
-  color: #0e0e0e;
+.con_form {
+  margin-top: 600px;
 }

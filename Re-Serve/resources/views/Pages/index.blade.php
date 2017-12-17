@@ -55,6 +55,25 @@
 	  		</div>
 	  	</div>
 	  </section>
+
+	  <section class="sponsors">
+	  	<div class="container">
+	  		<div class="row text-center">
+	  			<div class="col-12 col-md-4">
+	  				<img src="{{asset('img/logo1.png')}}" alt="">
+
+	  			</div>
+	  			<div class="col-12 col-md-4">
+	  				<img src="{{asset('img/logo5.png')}}" alt="">
+
+	  			</div>
+	  			<div class="col-12 col-md-4">
+	  				<img src="{{asset('img/logo6.png')}}" alt="">
+
+	  			</div>
+	  		</div>
+	  	</div>
+	  </section>
 		
 	
 		   <div class="container-fluid">

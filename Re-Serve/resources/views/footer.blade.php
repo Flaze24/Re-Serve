@@ -1,12 +1,14 @@
+
+
   <section class="miscellaneous" id="footer">
   	<div class="container-fluid overview">
   		<div class="row">
   			<div class="col-12 text-center col-md-4">
   				<h4>Explore Our Site</h4>
   				<ul>
-  					<li><a href="#">Re:Serve</a></li>
-  					<li><a href="#">About Us</a></li>
-  					<li><a href="#">Contact Us</a></li>
+  					<li><a href="{{route('index')}}">Re:Serve</a></li>
+  					<li><a href="{{route('about')}}">About Us</a></li>
+  					<li><a href="{{route('message.create')}}">Contact Us</a></li>
   				</ul>
   			</div>
   			<div class="col-12 text-center col-md-4">
@@ -14,7 +16,7 @@
           <li><a href="#">Login</a></li>
             <li><a href="#">Register</a></li>
             <li><a href="#">Restaurants</a></li>
-            <li><a href="#">Reserve</a></li>
+            <li><a href="#">Cancellation Policy</a></li>
   			</div>
   			<div class="col-12 text-center col-md-4">
   				<a  style="color:#442CD4;"  href="https://www.facebook.com/elleryjosef" target="_blank">

@@ -14,3 +14,5 @@
 Route::get('/', 'PagesController@index')->name("index");
 
 Route::get('pages.about','PagesController@about')->name("about");
+
+Route::resource('message','MessagesController');

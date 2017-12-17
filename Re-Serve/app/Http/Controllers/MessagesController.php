@@ -11,6 +11,19 @@ class MessagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+
+    {
+        $this->middleware(
+        'auth',
+        [ 'except'=>
+            [
+                'create','store'
+            ]
+        ]);
+    }
+
     public function index()
     {
         //
@@ -23,7 +36,7 @@ class MessagesController extends Controller
      */
     public function create()
     {
-        //
+        return view('messages.contact');
     }
 
     /**
@@ -34,7 +47,14 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            "name"=>'required|min:5',
+            "lastname"=>'required|min:5',
+            "email"=>'required',
+            "message"=>'required|min:10'
+        ]);
+
+        return redirect()->route('index');
     }
 
     /**
