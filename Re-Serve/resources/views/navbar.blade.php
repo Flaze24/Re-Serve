@@ -20,9 +20,27 @@
 					      <li class="nav-item active">
 					        <a class="nav-link" href="#">Restaurants</a>
 					      </li>
+					      @if(auth()->check())
+					      <li class="nav-item active">
+					      	<a href="#" class="nav-link">Reserves</a>
+					      </li>
+					      @endif
 					    </ul>
 					    <ul class="nav navbar-nav navbar-right">
+					      @if(auth()->guest())
 					      <li class="nav-item active"><a class="nav-link" href="{{route('login')}}">Login</a></li>
+						  @else
+						  <li class="dropdown">
+						    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{auth()->user()->name}} <span class="caret"></span></a>
+						    <ul class="dropdown-menu">
+						      <li><a href="#">Profile</a></li>
+						      <li><a href="#">Reserves</a></li>
+						      <li><a href="#">Something else here</a></li>
+						      <li role="separator" class="divider"></li>
+						      <li><a href="{{route('logout')}}">Logout</a></li>
+						    </ul>
+						  </li>
+						  @endif
 					    </ul>
 					  </div>
 					</div>

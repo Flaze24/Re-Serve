@@ -25,7 +25,7 @@
 			  <form action="#" method="post">
 			  	
 					<div class="form-group">
-
+						{!! csrf_field() !!}
 						{{Form::label('name', 'Name', ['class' => 'control-label'])}}
 						{{Form::text('name', '', ['class'=>'form-control', 'required'])}}
 

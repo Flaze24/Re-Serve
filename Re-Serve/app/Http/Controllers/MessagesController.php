@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Message;
+use App\Events\MessageReceived;
+use Illuminate\Support\Facades\Cache;
 
 class MessagesController extends Controller
 {
@@ -53,6 +56,10 @@ class MessagesController extends Controller
             "email"=>'required',
             "message"=>'required|min:10'
         ]);
+
+        $message=Message::create($request->all());
+        event(new MessageReceived($message));
+        Cache::tags("todos.mensajes")->flush();
 
         return redirect()->route('index');
     }
