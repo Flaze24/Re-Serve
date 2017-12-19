@@ -26,8 +26,8 @@ class CreateRestaurant extends Migration
                 $table->enum('dish_type',['italian','chinese','french','latin_american','gourmet','grill','desserts','european']);
                 $table->string('main_dish')->nullable()->default('none');
                 $table->string('dish_description');
-                $table->timestamp('opening_time');
-                $table->timestamp('closing_time')->useCurrent();
+                $table->time('opening_time');
+                $table->time('closing_time')->useCurrent();
                 $table->integer('reserve_number');
                 $table->string('restaurant_photo');
                 $table->string('user_id');

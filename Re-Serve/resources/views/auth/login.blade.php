@@ -39,8 +39,18 @@
 					</div>
 
 					<div class="form-group">
-						{{Form::submit('Send', ['class'=>'form-control btn btn-primary'])}}
-						{{link_to_route('register', "Register",[],['class'=>'form-control btn btn-info'])}}
+						<div class="row">
+							<div class="col-4 col-md-4">
+							{{Form::submit('Send', ['class'=>'form-control btn btn-primary'])}}
+								
+							</div>
+							<div class="col-4 col-md-4">
+							{{link_to_route('register', "Register",[],['class'=>'form-control btn btn-info'])}}
+								
+							</div>
+							
+							
+						</div>
 					</div>
 			  </form>
 					

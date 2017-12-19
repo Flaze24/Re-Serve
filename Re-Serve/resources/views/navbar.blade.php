@@ -1,5 +1,5 @@
 
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<nav class="navbar  navbar-expand-lg navbar-toggleable-lg navbar-dark bg-primary">
 				<div class="container-fluid">
 					  <a class="navbar-brand" href="{{route('index')}}"><img src="{{asset('img/re-serve-logo.png')}}" alt=""></a>
 					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,15 +30,17 @@
 					      @if(auth()->guest())
 					      <li class="nav-item active"><a class="nav-link" href="{{route('login')}}">Login</a></li>
 						  @else
-						  <li class="dropdown">
-						    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{auth()->user()->name}} <span class="caret"></span></a>
-						    <ul class="dropdown-menu">
-						      <li><a href="#">Profile</a></li>
-						      <li><a href="#">Reserves</a></li>
-						      <li><a href="#">Something else here</a></li>
-						      <li role="separator" class="divider"></li>
-						      <li><a href="{{route('logout')}}">Logout</a></li>
-						    </ul>
+						  <li class="nav-item dropdown">
+						    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{auth()->user()->name}} <span class="caret"></span></a>
+						    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						      <a href="#" class="dropdown-item">Profile</a>
+						      <a href="#" class="dropdown-item">Reserves</a>
+						      @if(auth()->user()->type_id==2||auth()->user()->type_id==3)
+						      <a href="#" class="dropdown-item">Dashboard</a>
+						      @endif
+						      <div role="separator" class="dropdown-divider"></div>
+						      <a href="{{route('logout')}}" class="dropdown-item">Logout</a>
+						    </div>
 						  </li>
 						  @endif
 					    </ul>

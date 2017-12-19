@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Filesystem\Filesystem;
+use App\Restaurant;
+use Illuminate\Support\Facades\Cache;
 
 class RestaurantsController extends Controller
 {
@@ -14,7 +16,17 @@ class RestaurantsController extends Controller
      */
     public function index()
     {
-        //
+        $restaurants=Restaurant::all();
+        $restaurants=Cache::rememberForever('restaurants.all');
+            
+        return view('pages.index', compact('restaurants'));
+    }
+
+    public function rest(){
+        $restaurants=Cache::rememberForever('restaurants.all');
+            
+        
+        return view('restaurants.index', compact('restaurants'));
     }
 
     /**
@@ -46,7 +58,8 @@ class RestaurantsController extends Controller
      */
     public function show($id)
     {
-        //
+        $restaurants=Restaurant::findOrFail($id);
+        return view('restaurant.show', compact('restaurants'));
     }
 
     /**

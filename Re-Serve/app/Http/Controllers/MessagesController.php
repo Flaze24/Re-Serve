@@ -29,7 +29,12 @@ class MessagesController extends Controller
 
     public function index()
     {
-        //
+        $messages=Cache::rememberForever('messages.all',function(){
+                    $messages= Message::with('category')->get();
+                });
+            
+        
+        return view('message.index', compact('messages'));
     }
 
     /**
@@ -59,7 +64,7 @@ class MessagesController extends Controller
 
         $message=Message::create($request->all());
         event(new MessageReceived($message));
-        Cache::tags("todos.mensajes")->flush();
+      
 
         return redirect()->route('index');
     }

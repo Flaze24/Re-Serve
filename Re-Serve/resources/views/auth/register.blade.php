@@ -39,11 +39,16 @@
 						{{Form::label('identification','Identification N.', ['class' => 'control-label'])}}
 						{{Form::number('identification', '', ['class'=>'form-control','required'])}}
 
-						{!! $errors->first('lastname', '<p class="error">:message</p>') !!}
+						{!! $errors->first('identification', '<p class="error">:message</p>') !!}
+
+						{{Form::label('birthdate','Birth Date',['class'=>'control-label'])}}
+						{{Form::date('birthdate', '', ['class'=>'form-control', 'required'])}}
+
+						{!! $errors->first('birthdate', '<p class="error">:message</p>') !!}
 
 						{{Form::label('email','Email', ['class'=>'control-label'])}}
 						{{Form::email('email', '', ['class'=>'form-control', 'required'])}}
-
+						
 						{!! $errors->first('email', '<p class="error">:message</p>') !!}
 
 						{{Form::label('textarea','Address', ['class'=>'control-label'])}}
@@ -54,7 +59,7 @@
 						{{Form::label('password','Password', ['class'=>'control-label'])}}
 						{{Form::password('password', ['class'=>'form-control', 'required'])}}
 
-						{!! $errors->first('message', '<p class="error">:message</p>') !!}
+						{!! $errors->first('password', '<p class="error">:message</p>') !!}
 
 					</div>
 

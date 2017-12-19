@@ -20,9 +20,14 @@
 		  			</div>
 		  		</div>
 		  		<div class="row">
-		  			<div class="col-xs-6 col-sm-4 col-md-3">
-		  				<-Restaurants coming->
+		  			@foreach($restaurants as $restaurant)
+		  			<div class="col-12 col-sm-6 col-md-4 res_index text-center">
+		  				<img src="{{asset('img').'/'.$restaurant->restaurant_photo}}" alt="">
+		  				<h4>{{$restaurant->name}}</h4>
+		  				<p>{{$restaurant->dish_type}}</p>
+		  				<a href="restaurant.show" class="btn btn-primary">Reserve</a>
 		  			</div>
+		  			@endforeach
 		  		</div>
 		  </div>
 	  </section>
