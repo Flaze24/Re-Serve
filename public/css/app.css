@@ -122,7 +122,6 @@ hr.style-seven::before {
 }
 .restaurants {
   margin-top: 600px;
-  display: none;
   font-size: 15px;
 }
 .res_index {
@@ -131,6 +130,12 @@ hr.style-seven::before {
 .res_index img {
   width: 300px;
   height: 150px;
+}
+.restaurant {
+  margin-top: 10px;
+}
+.restaurant img {
+  width: 100%;
 }
 .about {
   background: #eee;
@@ -332,4 +337,30 @@ hr.style-seven::before {
 }
 .cancel {
   margin-top: 600px;
+}
+.res_entrance {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.7)), to(rgba(0,0,0,0.7))), url(/images/restaurant.jpg?e3fc955f6773d053efe29d9efd240cf0);
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/images/restaurant.jpg?e3fc955f6773d053efe29d9efd240cf0);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 550px;
+  margin-top: 0 auto;
+  font-size: 20px;
+  color: #fff;
+}
+.res_entrance h1,
+.res_entrance h2,
+.res_entrance h3,
+.res_entrance h4,
+.res_entrance h5,
+.res_entrance h6 {
+  padding-top: 250px;
+  color: #fff;
+}
+.res_entrance p span {
+  text-decoration: underline;
+  font-weight: bold;
 }

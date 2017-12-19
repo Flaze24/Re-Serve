@@ -7,7 +7,7 @@
 			<div class="col-xs-12 entrance text-center img-fluid">
 					<h2 class="en-text">Get the best table around</h2>
 					<p>We provide you with the <span>best</span> dining experience possible</p>
-					<a href="#" class="btn btn-secondary">Find a Restaurant</a>
+					<a href="{{route('restaurant.index')}}" class="btn btn-secondary">Find a Restaurant</a>
 			</div>
 		</div>
   </div>
@@ -25,7 +25,7 @@
 		  				<img src="{{asset('img').'/'.$restaurant->restaurant_photo}}" alt="">
 		  				<h4>{{$restaurant->name}}</h4>
 		  				<p>{{$restaurant->dish_type}}</p>
-		  				<a href="restaurant.show" class="btn btn-primary">Reserve</a>
+		  				<a href="{{route('restaurant.show', $restaurant->id)}}" class="btn btn-primary">Reserve</a>
 		  			</div>
 		  			@endforeach
 		  		</div>

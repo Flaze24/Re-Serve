@@ -17,9 +17,9 @@ class RestaurantsController extends Controller
     public function index()
     {
         $restaurants=Restaurant::all();
-        $restaurants=Cache::rememberForever('restaurants.all');
+        // $restaurants=Cache::rememberForever('restaurants.all');
             
-        return view('pages.index', compact('restaurants'));
+        return view('restaurant.index', compact('restaurants'));
     }
 
     public function rest(){

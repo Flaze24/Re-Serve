@@ -18,7 +18,7 @@
 					        <a class="nav-link" href="{{route('message.create')}}">Contact</a>
 					      </li>
 					      <li class="nav-item active">
-					        <a class="nav-link" href="#">Restaurants</a>
+					        <a class="nav-link" href="{{route('restaurant.index')}}">Restaurants</a>
 					      </li>
 					      @if(auth()->check())
 					      <li class="nav-item active">

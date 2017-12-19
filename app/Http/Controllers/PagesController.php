@@ -12,7 +12,7 @@ class PagesController extends Controller
 
 		$restaurants=Restaurant::all();
         // $restaurants=Cache::rememberForever('restaurants.all');
-       
+
         return view('pages.index', compact('restaurants'));
     }
 
@@ -27,5 +27,9 @@ class PagesController extends Controller
 
     public function cancel(){
     	return view('pages.cancel');
+    }
+
+    public function dash_index(){
+    	return view('pages.dashIndex');
     }
 }
