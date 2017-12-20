@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use App\Restaurant;
+use App\User;
 use Illuminate\Support\Facades\Cache;
 
 class RestaurantsController extends Controller
@@ -59,6 +60,7 @@ class RestaurantsController extends Controller
     public function show($id)
     {
         $restaurants=Restaurant::findOrFail($id);
+        // $users=User::findOrFail($id2);
         return view('restaurant.show', compact('restaurants'));
     }
 

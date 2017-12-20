@@ -29,10 +29,7 @@ class MessagesController extends Controller
 
     public function index()
     {
-        $messages=Cache::rememberForever('messages.all',function(){
-                    $messages= Message::with('category')->get();
-                });
-            
+        $messages=Message::all();
         
         return view('message.index', compact('messages'));
     }

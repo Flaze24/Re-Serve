@@ -1,7 +1,3 @@
-@extends('layout')
-
-@section('contenido')
-
 <nav class="navbar navbar-default navbar-static-top">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -10,7 +6,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="hidden-sm hidden-xs" href="index.php"><img id="logo" src="hotlogo.png" alt=""></a>
+           <a class="navbar-brand" href="{{route('index')}}"><img src="{{asset('img/re-serve-logo.png')}}" alt=""></a>
         </div>
         <ul class="nav navbar-top-links navbar-right">                
             <li class="dropdown">
@@ -29,26 +25,22 @@
                     <li>
                         <a class="active" href="index.php"><i class="fa fa-dashboard fa-fw"></i> Inicio</a>
                     </li>
+                    @if(auth()->check())
                     <li>
-                        <a href="usuarios.php"><i class="fa fa-bar-chart-o fa-fw"></i> Usuarios</a>
+                        <a href="{{route('backUsers')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Users</a>
                     </li>
                     <li>
-                        <a href="reservaciones.php"><i class="fa fa-table fa-fw"></i> Reservaciones</a>
+                        <a href="{{route('message.index')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Messages</a>
                     </li>
                     <li>
-                        <a href="reportes.php"><i class="fa fa-edit fa-fw"></i> Reportes</a>
+                    @endif
+                        <a href="{{route('backProfile')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Profile</a>
+                    </li>
+                    <li>
+                        <a href="{{route('backRestaurant')}}"><i class="fa fa-edit fa-fw"></i> Restaurants</a>
                     </li>
                 </ul>
             </div>
         </div>
 	</nav>
 
-	
-		<div class="row">
-			<div class="col-md-12">
-                <h2>Bienvenido,</h2>
-				<h3>Elija una opción del panel principal</h3>
-			</div>
-		</div>
-
-@stop

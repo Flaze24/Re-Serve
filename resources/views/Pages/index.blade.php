@@ -25,7 +25,11 @@
 		  				<img src="{{asset('img').'/'.$restaurant->restaurant_photo}}" alt="">
 		  				<h4>{{$restaurant->name}}</h4>
 		  				<p>{{$restaurant->dish_type}}</p>
-		  				<a href="{{route('restaurant.show', $restaurant->id)}}" class="btn btn-primary">Reserve</a>
+		  				@if(auth()->check())
+		  				<a href="{{route('restaurant.show',['id' => $restaurant->id, 'id2' => auth()->user()->id])}}" class="btn btn-primary">Reserve</a>
+		  				@else
+		  				<a href="{{route('login')}}" class="btn btn-primary">Log in to Reserve</a>
+		  				@endif
 		  			</div>
 		  			@endforeach
 		  		</div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Restaurant;
+use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
 class PagesController extends Controller
@@ -11,9 +13,10 @@ class PagesController extends Controller
      public function index(){
 
 		$restaurants=Restaurant::all();
+        $users=DB::table('users')->pluck('id');
         // $restaurants=Cache::rememberForever('restaurants.all');
 
-        return view('pages.index', compact('restaurants'));
+        return view('pages.index', compact('restaurants', 'users'));
     }
 
     // public function res_show_index(){
@@ -29,7 +32,5 @@ class PagesController extends Controller
     	return view('pages.cancel');
     }
 
-    public function dash_index(){
-    	return view('pages.dashIndex');
-    }
+    
 }

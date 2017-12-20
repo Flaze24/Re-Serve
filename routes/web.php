@@ -17,8 +17,6 @@ Route::get('pages.about','PagesController@about')->name("about");
 
 Route::get('pages.cancel', 'PagesController@cancel')->name("cancel");
 
-Route::get('pages.dashIndex','PagesController@dash_index')->name("dashIndex");
-
 Route::resource('message','MessagesController');
 
 Route::get('login','Auth\LoginController@showLoginForm')->name('login');
@@ -32,3 +30,23 @@ Route::post('register','Auth\RegisterController@register');
 Route::get('logout','Auth\LoginController@logout')->name('logout');
 
 Route::resource('restaurant','RestaurantsController');
+
+Route::resource('reserve','ReservesController');
+
+//Dashboard
+
+Route::get('back.index','BackController@index')->name('backIndex');
+
+Route::get('back.restaurant','BackController@restaurant')->name('backRestaurant');
+
+Route::get('back.users','BackController@users')->name('backUsers');
+
+Route::get('back.reserve','BackController@reserve')->name('backReserve');
+
+Route::get('back.profile','BackController@profile')->name('backProfile');
+
+Route::get('back.userEdit','BackController@userEdit')->name('backUserEdit');
+
+Route::get('back.userUpdate','BackController@userUpdate')->name('backUserUpdate');
+
+Route::get('back.userDelete','BackController@userDelete')->name('backUserDelete');

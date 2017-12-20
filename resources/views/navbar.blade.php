@@ -36,7 +36,7 @@
 						      <a href="#" class="dropdown-item">Profile</a>
 						      <a href="#" class="dropdown-item">Reserves</a>
 						      @if(auth()->user()->type_id==2||auth()->user()->type_id==3)
-						      <a href="#" class="dropdown-item">Dashboard</a>
+						      <a href="{{route('backIndex')}}" class="dropdown-item">Dashboard</a>
 						      @endif
 						      <div role="separator" class="dropdown-divider"></div>
 						      <a href="{{route('logout')}}" class="dropdown-item">Logout</a>

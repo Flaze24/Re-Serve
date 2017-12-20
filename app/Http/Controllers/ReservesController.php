@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Restaurant;
+use App\Reserve;
 
 class ReservesController extends Controller
 {
@@ -34,7 +36,22 @@ class ReservesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            "reserve_date"=>'required|date|after:today',
+            "reserve_time"=>'required',
+            "guest_amount"=>'required|integer',
+           
+        ]);
+
+        $restaurants=Restaurant::findOrFail($request->restaurant_id);
+
+        if($request->guest_amount>$restaurants->reserve_number || $request->reserve_time<$restaurants->opening_time || $request->reserve_time>$restaurants->closing_time)
+        {
+            return back();
+        }
+
+        $reserves=Reserve::create($request->all());
+        return redirect()->route('index');
     }
 
     /**

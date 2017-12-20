@@ -1,27 +1,100 @@
 body{
-	color:#FFFFFF;
-	width:100%;
-	
+    background-color: #484848;
+}
+main{
+    padding: 0 15px;
+    height: 100%;
+    min-height: 700px;
+    background-color: white;
+}
+@media (min-width: 768px) {
+    main {
+        position: inherit;
+        margin: 0 0 0 250px;
+        padding: 0 30px;
+        border-left: 1px solid #e7e7e7;
+    }
 }
 
-.header::after{
-	margin:0;
+#logo {
+    height: 50px;
+    margin-left: 10px;
+    padding: 10px 50px 10px 10px;
+}
+.navbar{
+    margin-bottom: 0;
+}
+.navbar-default{
+    background-color:#484848;
+}
+.navbar-top-links {
+    margin-right: 0;
+}
+.navbar-top-links li {
+    display: inline-block;
+    margin-right: 15px;
+}
+.navbar-top-links li a {
+    padding: 15px;
+    min-height: 50px;
+    color: white;
+}
+.navbar-top-links li a:hover, .navbar-top-links li a:focus{
+  color: #000;
+}
+.navbar-top-links .dropdown-menu li {
+    display: block;
+    margin-right: 0;
+}
+.navbar-top-links .dropdown-menu li a {
+    padding: 3px 20px;
+    min-height: 0;
+    color: #000;
 }
 
-.entrance{
-	background: linear-gradient(
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.7)
-    ), url('../img/reserve_banner2.jpg');
-    background-repeat:no-repeat;
-	position:absolute;
-	width:100%;
-	height:600px;
-	margin:0 auto;
-
+.navbar img {
+  width: 150px;
+  height: 40px;
 }
-
-.entrance h2{
-	padding:200px;
-	color:#FFFFFF;
+.navbar-top-links .dropdown-menu li a div {
+    white-space: normal;
+}
+.navbar-top-links .dropdown-user {
+    right: 0;
+    left: auto;
+}
+.sidebar .sidebar-nav.navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+}
+.sidebar ul li {
+    border-bottom: 1px solid #e7e7e7;
+}
+.sidebar ul li a {
+  color: white;
+}
+.sidebar ul li a:hover {
+  color: #000;
+}
+.sidebar ul li a.active {
+    color: #000;
+    background-color: #eeeeee;
+}
+.sidebar .nav-second-level li,
+.sidebar .nav-third-level li {
+    border-bottom: none !important;
+}
+.sidebar .nav-second-level li a {
+    padding-left: 37px;
+}
+.sidebar .nav-third-level li a {
+    padding-left: 52px;
+}
+@media (min-width: 768px) {
+    .sidebar {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+        margin-top: 51px;
+    }
 }
