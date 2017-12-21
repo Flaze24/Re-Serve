@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Reserve;
+use Illuminate\Support\Facades\Cache;
 
 class ReservesController extends Controller
 {
@@ -13,9 +14,17 @@ class ReservesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //  public function __construct()
+
+    // {
+    //     $this->middleware('auth');
+    // }
     public function index()
     {
-        //
+       $reserves = Reserve::where('user_id', auth()->user()->id)->get();
+            
+        return view('reserve.index', compact('reserves'));
     }
 
     /**
@@ -51,7 +60,7 @@ class ReservesController extends Controller
         }
 
         $reserves=Reserve::create($request->all());
-        return redirect()->route('index');
+        return redirect()->route('reserve.index');
     }
 
     /**
@@ -62,7 +71,8 @@ class ReservesController extends Controller
      */
     public function show($id)
     {
-        //
+        
+    
     }
 
     /**
@@ -73,7 +83,10 @@ class ReservesController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $reserve=Reserve::findOrFail($id);
+
+        return view('reserve.edit', compact('reserve'));
     }
 
     /**
@@ -85,7 +98,9 @@ class ReservesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Reserve::findOrFail($id)->update($request->all());
+        Cache::flush();
+        return redirect()->route('reserve.index');
     }
 
     /**
@@ -96,6 +111,8 @@ class ReservesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Reserve::destroy($id);
+        Cache::flush();
+        return redirect()->route('reserve.index');
     }
 }

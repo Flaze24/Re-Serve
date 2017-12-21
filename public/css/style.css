@@ -7,6 +7,10 @@ main{
     min-height: 700px;
     background-color: white;
 }
+
+textarea{
+    resize: none;
+}
 @media (min-width: 768px) {
     main {
         position: inherit;

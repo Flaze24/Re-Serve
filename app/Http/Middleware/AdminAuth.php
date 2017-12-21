@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Middleware;
+use Illuminate\Support\Facades\Auth;
 
 use Closure;
 
-class DashBoardAuth
+class AdminAuth
 {
     /**
      * Handle an incoming request.
@@ -15,11 +16,12 @@ class DashBoardAuth
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user()->user_type != '2'||$request->user()->user_type != '3')
+       if ( Auth::check() && Auth::user()->type_id==3)
         {
-            return redirect('dashboard.index');
+            return $next($request);
         }
 
-        return $next($request);
+        return redirect('/');
+
     }
 }

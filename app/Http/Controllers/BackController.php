@@ -16,7 +16,8 @@ class BackController extends Controller
         $user=User::findOrFail(auth()->user()->id);
         return view('back.index', compact('user'));
     }
-public function restaurant()
+
+    public function restaurant()
     {   
         if(auth()->user()->type_id<3)
         {
@@ -45,11 +46,12 @@ public function restaurant()
 
     public function users(){
         $users=User::all();
+        
         return view('back.users', compact('users'));
     }
 
     public function userEdit($id){
-    	$user=Message::findOrFail($id);
+    	$user=User::findOrFail($id);
         return view('back.userEdit', compact('user'));
     }
 
@@ -71,8 +73,10 @@ public function restaurant()
     }
 
 
-    public function profile(){
+    public function profile($id){
 
-    	return view('backProfile');
+        $user=User::findOrFail($id);
+
+    	return view('backProfile', compact('user'));
     }
 }

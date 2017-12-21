@@ -29,7 +29,7 @@ class CreateRestaurant extends Migration
                 $table->time('opening_time');
                 $table->time('closing_time')->useCurrent();
                 $table->integer('reserve_number');
-                $table->string('restaurant_photo');
+                $table->string('restaurant_photo')->nullable();
                 $table->string('user_id');
                 $table->timestamps();
         });

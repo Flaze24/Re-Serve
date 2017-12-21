@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Message;
-use App\Events\MessageReceived;
-use Illuminate\Support\Facades\Cache;
-use Auth;
+use App\Reserve
+use App\Restaurant
 
-class MessagesController extends Controller
+class BackReserveController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,23 +14,23 @@ class MessagesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct()
+     public function __construct()
 
     {
         $this->middleware(
-        'admin',
+        'manager',
         [ 'except'=>
             [
-                'create','store'
+                'show'
             ]
         ]);
     }
 
     public function index()
     {
-        $messages=Message::all();
-        
-        return view('messages.index', compact('messages'));
+         $reserves = Reserve::where('user_id', auth()->user()->id)->get();
+            
+        return view('backreserve.index', compact('reserves'));
     }
 
     /**
@@ -42,7 +40,7 @@ class MessagesController extends Controller
      */
     public function create()
     {
-        return view('messages.contact');
+        //
     }
 
     /**
@@ -53,18 +51,7 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            "name"=>'required|min:5',
-            "lastname"=>'required|min:5',
-            "email"=>'required',
-            "message"=>'required|min:10'
-        ]);
-
-        $message=Message::create($request->all());
-        event(new MessageReceived($message));
-      
-
-        return redirect()->route('index');
+        //
     }
 
     /**

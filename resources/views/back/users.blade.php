@@ -29,7 +29,7 @@
 			 				<td>{{Carbon\Carbon::parse($user->birthdate)->format('d/m/Y')}}</td>
 			 				<td>{{ $user->email }}</td>
 			 				<td>{{ $user->address }}</td>
-			 				<td>{{ $user->type_id}}</td>
+			 				<td>{{ $user->type->type}}</td>
 
 			 				<td>
 			 					<a href="{{route('backUserEdit', $user->id)}}" class="btn btn-info">

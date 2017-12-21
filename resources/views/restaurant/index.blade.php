@@ -1,10 +1,10 @@
 @extends('layout')
 
 @section('contenido')
-
+		<br><br>
 	  <div class="container-fluid">
 			<div class="row text-center">
-				<div class="col-xs-12 res_entrance text-center img-fluid">
+				<div class="col-12 text-center res_entrance">
 						<h2 class="en-text">Get the best table around</h2>
 						<p>We provide you with the <span>best</span> dining experience possible</p>
 						
@@ -12,7 +12,7 @@
 			</div>
 	  </div>
 
-	  <section class="restaurants" id="restaurant_sec">
+	  <section class="restaurants2" id="restaurant_sec">
 		  <div class="container-fluid">
 		  		<div class="row text-center">
 		  			<div class="col-xs-6 col-xs-offset-3 col-md-12">
@@ -27,7 +27,7 @@
 		  				<h4>{{$restaurant->name}}</h4>
 		  				<p>{{ucfirst($restaurant->dish_type)}}</p>
 		  				@if(auth()->check())
-		  				<a href="{{route('restaurant.show', $restaurant->id, $users->id)}}" class="btn btn-primary">Reserve</a>
+		  				<a href="{{route('restaurant.show', ['id'=> $restaurant->id])}}" class="btn btn-primary">Reserve</a>
 		  				@else
 		  				<a href="{{route('login')}}" class="btn btn-primary">Log in to Reserve</a>
 		  				@endif

@@ -22,7 +22,7 @@
 					      </li>
 					      @if(auth()->check())
 					      <li class="nav-item active">
-					      	<a href="#" class="nav-link">Reserves</a>
+					      	<a href="{{route('reserve.index')}}" class="nav-link">Reserves</a>
 					      </li>
 					      @endif
 					    </ul>
@@ -33,10 +33,10 @@
 						  <li class="nav-item dropdown">
 						    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{auth()->user()->name}} <span class="caret"></span></a>
 						    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						      <a href="#" class="dropdown-item">Profile</a>
-						      <a href="#" class="dropdown-item">Reserves</a>
+						     
+						      <a href="{{route('reserve.index')}}" class="dropdown-item">Reserves</a>
 						      @if(auth()->user()->type_id==2||auth()->user()->type_id==3)
-						      <a href="{{route('backIndex')}}" class="dropdown-item">Dashboard</a>
+						      <a href="{{route('dashIndex')}}" class="dropdown-item">Dashboard</a>
 						      @endif
 						      <div role="separator" class="dropdown-divider"></div>
 						      <a href="{{route('logout')}}" class="dropdown-item">Logout</a>

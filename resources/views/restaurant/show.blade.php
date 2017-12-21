@@ -25,8 +25,9 @@
 						{{Form::number('guest_amount', '', ['class'=>'form-control','required'])}}
 						
 						{!! $errors->first('guest_amount', '<p class="error">:message</p>') !!}	
-
+						@if(auth()->check())
 						{{Form::hidden('user_id', ''.auth()->user()->id)}}
+						@endif
 						{{Form::hidden('restaurant_id', ''.$restaurants->id)}}
 					</div>
 					<div class="col-12 col-md-3 form-group">
@@ -36,7 +37,7 @@
 					</div>
 					
 					</div>
-				</div>
+				
 				<div class="row res_entrance">
 					<div class="col-12 text-center col-md-6">
 						<div class="col-12 col-md-12 text-center">
@@ -66,7 +67,7 @@
 				
 			
 		</div>
-	</div>
+	
 
 
 @stop

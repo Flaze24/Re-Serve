@@ -10,6 +10,18 @@ use Illuminate\Support\Facades\Cache;
 
 class PagesController extends Controller
 {
+     public function __construct()
+
+    {
+        $this->middleware(
+        'manager',
+        [ 'only'=>
+            [
+                'dashindex','restaurant'
+            ]
+        ]);
+    }
+
      public function index(){
 
 		$restaurants=Restaurant::all();
@@ -30,6 +42,16 @@ class PagesController extends Controller
 
     public function cancel(){
     	return view('pages.cancel');
+    }
+
+    public function dashindex(){
+        $users=User::findOrFail(auth()->user()->id);
+        return view('pages.dashindex', compact('users'));
+    }
+
+    public function restaurant(){
+        $restaurants=Restaurant::where('user_id',auth()->user()->id)->get();
+        return view('pages.restaurant',compact('restaurants'));
     }
 
     

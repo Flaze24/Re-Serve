@@ -35,18 +35,7 @@ Route::resource('reserve','ReservesController');
 
 //Dashboard
 
-Route::get('back.index','BackController@index')->name('backIndex');
-
-Route::get('back.restaurant','BackController@restaurant')->name('backRestaurant');
-
-Route::get('back.users','BackController@users')->name('backUsers');
-
-Route::get('back.reserve','BackController@reserve')->name('backReserve');
-
-Route::get('back.profile','BackController@profile')->name('backProfile');
-
-Route::get('back.userEdit','BackController@userEdit')->name('backUserEdit');
-
-Route::get('back.userUpdate','BackController@userUpdate')->name('backUserUpdate');
-
-Route::get('back.userDelete','BackController@userDelete')->name('backUserDelete');
+Route::resource('user','UserController');
+Route::resource('backreserve','BackReserveController');
+Route::get('pages.restaurant','PagesController@restaurant')->name('restaurants');
+Route::get('pages.dashindex','PagesController@dashindex')->name('dashIndex');

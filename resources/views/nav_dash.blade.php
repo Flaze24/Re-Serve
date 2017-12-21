@@ -25,19 +25,22 @@
                     <li>
                         <a class="active" href="index.php"><i class="fa fa-dashboard fa-fw"></i> Inicio</a>
                     </li>
-                    @if(auth()->check())
+                    @if(auth()->user()->type_id==3)
                     <li>
-                        <a href="{{route('backUsers')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Users</a>
+                        <a href="{{route('dashIndex')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Users</a>
                     </li>
                     <li>
                         <a href="{{route('message.index')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Messages</a>
                     </li>
                     <li>
                     @endif
-                        <a href="{{route('backProfile')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Profile</a>
                     </li>
                     <li>
-                        <a href="{{route('backRestaurant')}}"><i class="fa fa-edit fa-fw"></i> Restaurants</a>
+                        @if(auth()->user()->type_id==2)
+                        <a href="{{route('restaurants')}}"><i class="fa fa-edit fa-fw"></i> Restaurants</a>
+                        @elseif(auth()->user()->type_id==3)
+                        <a href="{{route('restaurant.index')}}"><i class="fa fa-edit fa-fw"></i> Restaurants</a>
+                        @endif
                     </li>
                 </ul>
             </div>

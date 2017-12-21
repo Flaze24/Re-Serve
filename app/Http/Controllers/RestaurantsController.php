@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use App\Restaurant;
-use App\User;
 use Illuminate\Support\Facades\Cache;
+use Auth;
+
 
 class RestaurantsController extends Controller
 {
@@ -15,20 +16,34 @@ class RestaurantsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function __construct()
+
     {
+        $this->middleware(
+        'manager',
+        [ 'except'=>
+            [
+                'index', 'show', 'create'
+            ]
+        ]);
+    }
+
+    public function index()
+    {   if(Auth::check()){
+
+        if(auth()->user()->type_id = 3){
+            $restaurants=Restaurant::all();
+            return view('restaurant.dash',compact('restaurants'));
+        }
+    }
         $restaurants=Restaurant::all();
+
         // $restaurants=Cache::rememberForever('restaurants.all');
             
         return view('restaurant.index', compact('restaurants'));
     }
 
-    public function rest(){
-        $restaurants=Cache::rememberForever('restaurants.all');
-            
-        
-        return view('restaurants.index', compact('restaurants'));
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -37,7 +52,7 @@ class RestaurantsController extends Controller
      */
     public function create()
     {
-        //
+        return view('restaurant.create');
     }
 
     /**
@@ -48,7 +63,25 @@ class RestaurantsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            "name"=>'required|min:5;',
+            "description"=>'required|min:10',
+            "email"=>'required',
+            "phone"=>'min:7|max:12',
+            "type"=>'required',
+            "address"=>'required|min:10',
+            "dish_description"=>'required|min:10',
+            "opening_time"=>'required',
+            "closing_time"=>'required',
+            "reserve_number"=>'required|int',
+           
+        ]);
+
+        $restaurant=Restaurant::create($request->all());
+        
+      
+
+        return redirect()->route('pages.dashindex');
     }
 
     /**
@@ -72,7 +105,9 @@ class RestaurantsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $restaurant=Restaurant::findOrFail($id);
+
+        return view('restaurant.edit', compact('restaurant'));
     }
 
     /**
@@ -84,7 +119,9 @@ class RestaurantsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Restaurant::findOrFail($id)->update($request->all());
+        Cache::flush();
+        return redirect()->route('pages.dashindex');
     }
 
     /**
@@ -95,6 +132,8 @@ class RestaurantsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Reserve::destroy($id);
+        Cache::flush();
+        return redirect()->route('pages.dashindex');
     }
 }
