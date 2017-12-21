@@ -36,7 +36,6 @@
 			 				<td>{{ $restaurant->reserve_number}}</td>
 			 				<td>{{ $restaurant->user->name}} {{$restaurant->user->lastname}}</td>
 							
-
 			 				<td>
 			 					<a href="{{route('restaurant.edit', $restaurant->id)}}" class="btn btn-info">
 			 						Edit
@@ -51,19 +50,19 @@
 			 					</form>
 			 				</td>
 			 				<td>
-			 					<a href="{{route('backreserve.index')}}" class="btn btn-primary">
-			 						Reservations
-			 					</a>
 			 				</td>
 			 			</tr>
 			 			@endforeach
 			 		</tbody>
 			 	</table>
-			 	<div class="col-xs-4 col-xs-offset-4">
-					<a href="{{route('restaurant.create')}}" class="btn btn-primary">
-						Create
-					</a>
+			 	<div class="col-xs-12 col-md-4 col-md-offset-4">
 			 		
+ 					<a href="{{route('backreserve.index')}}" class="btn btn-primary">
+ 						Reservations
+ 					</a>
+ 					<a href="{{route('restaurant.create')}}" class="btn btn-primary">
+ 						Create
+ 					</a>
 			 	</div>
 		</div>
 	</div>

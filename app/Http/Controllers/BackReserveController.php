@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Reserve
-use App\Restaurant
+use App\Reserve;
+use App\Restaurant;
+use Illuminate\Support\Facades\Cache;
 
 class BackReserveController extends Controller
 {
@@ -28,7 +29,12 @@ class BackReserveController extends Controller
 
     public function index()
     {
-         $reserves = Reserve::where('user_id', auth()->user()->id)->get();
+        if(auth()->user()->type_id == 3){
+            $reserves=Reserve::all();
+            return view('backreserve.index',compact('reserves'));
+        }
+
+         $reserves = Reserve::where('restaurant_id', auth()->user()->id)->get();
             
         return view('backreserve.index', compact('reserves'));
     }
@@ -73,7 +79,9 @@ class BackReserveController extends Controller
      */
     public function edit($id)
     {
-        //
+        $reserve=Reserve::findOrFail($id);
+
+        return view('backreserve.edit', compact('reserve'));
     }
 
     /**
@@ -85,7 +93,9 @@ class BackReserveController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Reserve::findOrFail($id)->update($request->all());
+        Cache::flush();
+        return redirect()->route('backreserve.index');
     }
 
     /**
@@ -96,6 +106,9 @@ class BackReserveController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Reserve::destroy($id);
+        Cache::flush();
+        $reserves=Reserve::all();
+        return view('backreserve.index', compact('reserves'));
     }
 }

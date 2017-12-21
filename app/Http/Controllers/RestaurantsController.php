@@ -21,10 +21,10 @@ class RestaurantsController extends Controller
 
     {
         $this->middleware(
-        'manager',
+        'admin',
         [ 'except'=>
             [
-                'index', 'show', 'create'
+                'index', 'show', 'create', 'store'
             ]
         ]);
     }
@@ -32,7 +32,7 @@ class RestaurantsController extends Controller
     public function index()
     {   if(Auth::check()){
 
-        if(auth()->user()->type_id = 3){
+        if(auth()->user()->type_id == 3){
             $restaurants=Restaurant::all();
             return view('restaurant.dash',compact('restaurants'));
         }
@@ -81,7 +81,7 @@ class RestaurantsController extends Controller
         
       
 
-        return redirect()->route('pages.dashindex');
+        return redirect()->route('dashIndex');
     }
 
     /**
@@ -121,7 +121,7 @@ class RestaurantsController extends Controller
     {
         Restaurant::findOrFail($id)->update($request->all());
         Cache::flush();
-        return redirect()->route('pages.dashindex');
+        return redirect()->route('dashIndex');
     }
 
     /**
@@ -132,8 +132,8 @@ class RestaurantsController extends Controller
      */
     public function destroy($id)
     {
-        Reserve::destroy($id);
+        Restaurant::destroy($id);
         Cache::flush();
-        return redirect()->route('pages.dashindex');
+        return redirect()->route('dashIndex');
     }
 }

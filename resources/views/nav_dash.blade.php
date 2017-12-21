@@ -14,7 +14,7 @@
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="{{route('logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
             </li>
@@ -23,11 +23,11 @@
             <div class="sidebar-nav navbar-collapse collapse" aria-expanded="false">
                 <ul class="nav">
                     <li>
-                        <a class="active" href="index.php"><i class="fa fa-dashboard fa-fw"></i> Inicio</a>
+                        <a class="active" href="{{route('dashIndex')}}"><i class="fa fa-dashboard fa-fw"></i> Inicio</a>
                     </li>
                     @if(auth()->user()->type_id==3)
                     <li>
-                        <a href="{{route('dashIndex')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Users</a>
+                        <a href="{{route('user.index')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Users</a>
                     </li>
                     <li>
                         <a href="{{route('message.index')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Messages</a>

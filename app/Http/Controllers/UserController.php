@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use App\User;
 
 class UserController extends Controller
 {
@@ -26,7 +28,9 @@ class UserController extends Controller
 
     public function index()
     {
-        //
+        $users=User::all();
+        
+        return view('user.index', compact('users'));
     }
 
     /**
@@ -69,7 +73,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=User::findOrFail($id);
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -81,7 +86,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        User::findOrFail($id)->update($request->all());
+
+        // $message= Cache::remember("message.{$id}"),1,function()use($id){
+        //     return Message::findOrFail($id);
+        // }
+        Cache::flush();
+        return redirect()->route('user.index');
     }
 
     /**
@@ -92,6 +103,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        Cache::flush();
+        return redirect()->route('user.index');
     }
 }

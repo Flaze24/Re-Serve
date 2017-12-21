@@ -86,7 +86,8 @@ class MessagesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $message=Message::findOrFail($id);
+        return view('messages.edit', compact('message'));
     }
 
     /**
@@ -98,7 +99,14 @@ class MessagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Message::findOrFail($id)->update($request->all());
+
+        // $message= Cache::remember("message.{$id}"),1,function()use($id){
+        //     return Message::findOrFail($id);
+        // }
+        Cache::flush();
+        $messages=Message::all();
+        return view('messages.index', compact('messages'));
     }
 
     /**
@@ -109,6 +117,9 @@ class MessagesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Message::destroy($id);
+        Cache::flush();
+       $messages=Message::all();
+        return view('messages.index', compact('messages'));
     }
 }

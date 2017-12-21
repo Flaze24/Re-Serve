@@ -16,14 +16,13 @@
 		<div class="col-xs-4 col-md-4">
 			<a href="{{route('message.index')}}" class="btn btn-primary">Message</a>
 		</div>
+		<div class="col-xs-4 col-md-4">
+			<a href="{{route('restaurant.index')}}" class="btn btn-primary">Restaurants</a>
+		</div>
 		@endif
 			@if(auth()->user()->type_id==2)
 			<div class="col-xs-4 col-xs-offset-4 col-md-4 col-md-offset-4">
 				<a href="{{route('restaurants')}}" class="btn btn-primary">Restaurants</a>
-			</div>
-			@elseif(auth()->user()->id==4)
-			<div class="col-xs-4 col-md-4">
-				<a href="{{route('restaurant.index')}}" class="btn btn-primary">Restaurants</a>
 			</div>
 			@endif
 	</div>
