@@ -20,7 +20,7 @@
 				    <a href="{{route('reserve.edit', $reserve->id)}}" class="btn btn-primary">Edit</a>
 			    		
 				    {{Form::open(['route'=>['reserve.destroy', $reserve->id], 'method'=>'delete','class'=>'pt-2'])}}
-	 						<button type="submit" class="btn btn-primary">Cancel</button>
+	 						<button type="submit" class="btn btn-primary" id="cancelRe">Cancel</button>
 	 				{{Form::close()}}
 			    		
 			    	

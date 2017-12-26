@@ -42,7 +42,7 @@
 	  					We're more than just a pretty site. Learn more about us and what we
 	  					have to offer.
 	  				</p>
-	  				<a href="#" class="btn btn-primary">About Us</a>
+	  				<a href="{{route('about')}}" class="btn btn-primary">About Us</a>
 	  			</div>
 	  		</div>
 	  	</div>
@@ -56,7 +56,7 @@
 		  			<p>
 		  				Have something you want to say? We're always willing to lend an ear
 		  			</p>
-		  			<a href="#" class="btn btn-outline-primary">Contact us</a>
+		  			<a href="{{route('message.create')}}" class="btn btn-outline-primary">Contact us</a>
 		  		</div>
 	  		</div>
 	  	</div>
@@ -87,7 +87,7 @@
 					<div class="col-xs-12 exit text-center img-fluid">
 							<h2 class="en-text">Don't be Shy</h2>
 							<p>Get the best dining experience that you deserve</p>
-							<a href="#" class="btn btn-secondary">Find a Restaurant</a>
+							<a href="{{route('restaurant.index')}}" class="btn btn-secondary">Find a Restaurant</a>
 					</div>
 				</div>
 	  		</div>

@@ -44,6 +44,7 @@
 						
 						{!! $errors->first('email', '<p class="error">:message</p>') !!}
 
+
 						{{Form::label('textarea','Address', ['class'=>'control-label'])}}
 						{{Form::textarea('address', $user->address, ['class'=>'form-control', 'required'])}}
 

@@ -6,6 +6,7 @@ let contact_sec=document.querySelector("#contact_sec");
 let about_sec=document.querySelector("#about_sec");
 let restaurants_sec=document.querySelector("#restaurants_sec");
 
+
 document.addEventListener('DOMContentLoaded', function(){
     
      fadeIn(restaurants_sec, "block");
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function(){
     
   
 });
+
 
 
 function fadeOut(el){
